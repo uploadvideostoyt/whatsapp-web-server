@@ -4,8 +4,12 @@ const express = require('express');
 const morgan = require('morgan');
 const compression = require('compression');
 const helmet = require('helmet');
+require('dotenv').config();
 
-const RECEIVER = '923137449415@c.us';
+const RECEIVER = process.env.RECEIVER || null;
+if (RECEIVER === null) {
+  throw new Error('No `RECEIVER` set in environment!');
+}
 
 (async function () {
   const client = new Client({
@@ -30,7 +34,13 @@ const RECEIVER = '923137449415@c.us';
 
   const homeHandler = (req, res) => {
     res.json({
-      message: 'Hello World!',
+      message: 'Welcome to the Server!\nPlease see this repo ``',
+    });
+  };
+
+  const pingHandler = (req, res) => {
+    res.json({
+      message: '👍',
     });
   };
 
@@ -73,6 +83,7 @@ const RECEIVER = '923137449415@c.us';
   app.use(helmet());
   app.use(express.json());
   app.get('/', homeHandler);
+  app.head('/', pingHandler);
   app.post('/send', sendMessageHandler);
   app.use(notFoundHandler);
   app.use(errorHandler);
