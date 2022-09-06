@@ -1,4 +1,17 @@
-*How To Build*
+**How To Build and Deploy to HEROKU**
+
+* Clone this repo
+* Rename `.env.example` file to `.env`
+* git init
+* git add .
+* git commit -m "Deploy to Heroku"
+* heroku login
+* heroku create -a [APP_NAME]
+* Add `puppeteer-heroku-buildpack` to app
+* heroku git:remote -a example-app
+* git push heroku master
+
+
 Add this buildpack to heroku app
 https://github.com/jontewks/puppeteer-heroku-buildpack
 
