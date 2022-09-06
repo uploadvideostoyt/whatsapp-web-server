@@ -1,3 +1,4 @@
+<<<<<<< HEAD
 **How To Build and Deploy to HEROKU**
 
 * Clone this repo
@@ -10,6 +11,9 @@
 * Add `puppeteer-heroku-buildpack` to app
 * heroku git:remote -a example-app
 * git push heroku master
+=======
+**How To Build**
+>>>>>>> 0bc2abe13490df31c3bcc92d03b26087c7127aba
 
 
 Add this buildpack to heroku app
