@@ -11,7 +11,14 @@ const RECEIVER = '923137449415@c.us';
   const client = new Client({
     puppeteer: {
       headless: true,
-      args: ['--no-sandbox', '--disable-setuid-sandbox'],
+      defaultViewport: null,
+      args: [
+        '--incognito',
+        '--no-sandbox',
+        '--disable-setuid-sandbox',
+        '--single-process',
+        '--no-zygote',
+      ],
     },
   });
 
